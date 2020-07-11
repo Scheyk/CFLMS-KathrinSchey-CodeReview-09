@@ -21,3 +21,9 @@ INNER JOIN costumer_deliveries ON costumer_deliveries.ID = deliverys.ID
 INNER JOIN location_deliveries ON location_deliveries.ID = deliverys.ID
 WHERE costumer_deliveries.deposit BETWEEN '2020-05-01' AND '2020-07-01' AND location_deliveries.pick_up BETWEEN '2020-05-01' AND '2020-07-01'
 group by deliverys.ID;
+
+/*which employee processed which packet*/
+
+SELECT employee.ID,employee.first_name,deliverys.ID
+FROM employee
+INNER JOIN deliverys ON deliverys.fk_employee = employee.ID;
